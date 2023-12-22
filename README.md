@@ -54,3 +54,7 @@ npx hardhat run scripts/deploy.ts --network klaytn
    ```
    npx hardhat run scripts/withdraw.mjs --network klaytn
    ```
+   
+## Reference
+- https://velog.io/@thyoondev/하드햇Hardhat에서-클레이튼Klaytn-배포하기
+- https://oxpampam.hashnode.dev/how-to-set-up-a-hardhat-project-for-klaytn
