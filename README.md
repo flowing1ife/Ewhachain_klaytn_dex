@@ -10,4 +10,47 @@ git clone https://github.com/flowing1ife/Ewhachain_klaytn_dex.git
 ```
 npm install
 ```
-3. main branch에서 코딩 시작
+## Build 💻
+
+1. root 폴더에 .env 파일 생성하여 작성 
+```
+KLAYTN_URL='https://api.baobab.klaytn.net:8651'
+PRIVATE_KEY=카이카스 지갑의 개인키를 넣어주세요.
+```
+2. hardhat.config.ts 수정
+3. contracts/EwhachainBank.sol 작성 후 컴파일
+```
+npx hardhat compile
+```
+4. scripts/deploy.ts 작성
+5. local에서 컨트랙트 테스트
+   1. local node 돌리기
+   ```
+    npx hardhat node
+    ```
+   2. 새로운 터미널을 열어서 작성한 컨트랙트 배포
+   ```
+    npx hardhat run scripts/deploy.ts --network localhost
+    ```
+   3. test/index.ts 에서 테스트 코드 작성
+   4. local에서 테스트 돌리기
+   ```
+    npx hardhat test test/index.ts --network localhost
+    ```
+6. 클레이튼 테스트넷에 배포
+```
+npx hardhat run scripts/deploy.ts --network klaytn
+```
+7. 실제 함수 실행
+   1. script/deposit.mjs 작성 후 실행
+   ```
+   npx hardhat run scripts/deposit.mjs --network klaytn
+   ```
+   2. script/getBalance.mjs 작성 후 실행
+   ```
+   npx hardhat run scripts/getBalance.mjs --network klaytn
+   ```
+   3. script/withdraw.mjs 작성 후 실행
+   ```
+   npx hardhat run scripts/withdraw.mjs --network klaytn
+   ```
